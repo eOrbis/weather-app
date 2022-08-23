@@ -13,33 +13,40 @@
     />
     <link rel="stylesheet" href="src/style.css" />
     <title>Angie's Weather App</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-app">
-      <h1>Current weather</h1>
-      <div class="row"></div>
-        <div class="col-sm-6">
-          <div id="current-time">Current time goes here</div>
-          <div id="#current-description">Weather description goes here</div>
+        <h1>Current weather in <span id="city">City</span></h1>
+        <div class="row">
+          <div class="col-6">
+           <div id="current-time">Current time goes here</div>
+           <div id="current-description">Weather description goes here</div>
+          </div>
+          <div class="col-6">
+            <div>Humidity: <span id="humidity"></span>
+            </div>
+            <div>Wind speed: <span id="wind"></span>
+            </div>
+          </div>
         </div>
-        <div class="col-sm-6">Something else over here
-        </div>
-      </div>
-      <form id="#city-search-form">
+        <form id="city-search-form">
         <input type="text" placeholder="Search city"></input>
         <input type="submit" />
-  
-      </form>
+        </form>
       
-      <div class="current-weather-info">
-        <img src="src/images/sunny.png" />
-        <span class="current-temp" id="#currentTemp">82</span>
-        <span class="degree-unit">°C |°F </span>
-        <div class="forecast-container">Forecast goes here</div>
-    </div>
-        <div id="#footer">This project was coded by Angie Wood, and is available open-sourced on GitHub and hosted on Netlify</div>
+        <div class="current-weather-info">
+          <img src="src/images/sunny.png" />
+          <span class="current-temp" id="current-temp">82</span>
+          <span class="degree-unit">°C |°F </span>
+          <div class="forecast-container">Forecast goes here
+          </div>
+        </div>
       </div>
+      <div id="footer">This project was coded by Angie Wood, and is available open-sourced on GitHub and hosted on Netlify
+      </div>
+      
     </div>
     <script src="src/app.js"></script>
   </body>

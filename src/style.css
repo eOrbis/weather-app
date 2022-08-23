@@ -26,3 +26,7 @@ img {
 .container {
   border: solid;
 }
+
+#current-description {
+  text-transform: capitalize;
+}
