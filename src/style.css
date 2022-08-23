@@ -1,4 +1,28 @@
-h1 {
-  color: yellowgreen;
-  text-align: center;
+.current-temp {
+  font-size: 48px;
+  line-height: 60px;
+  background-color: aqua;
+  vertical-align: top;
+}
+
+.current-weather-info {
+  vertical-align: top;
+}
+
+img {
+  background-color: pink;
+  vertical-align: top;
+}
+
+.degree-unit {
+  font-size: 16px;
+}
+
+.forecast-container {
+  border: solid;
+  max-width: 600px;
+}
+
+.container {
+  border: solid;
 }
