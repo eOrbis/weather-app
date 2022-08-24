@@ -5,12 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="src/style.css" />
     <title>Angie's Weather App</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -20,11 +15,13 @@
       <div class="weather-app">
         <h1>Current weather in <span id="city">City</span></h1>
         <div class="row">
-          <div class="col-6">
-           <div id="current-time">Current time goes here</div>
-           <div id="current-description">Weather description goes here</div>
+          <div class="col-sm">
+            <div><span id="current-date"></span><span id="current-time"></span>
+            </div>
+            <div id="current-description">Weather description goes here
+            </div>
           </div>
-          <div class="col-6">
+          <div class="col-sm">
             <div>Humidity: <span id="humidity"></span>
             </div>
             <div>Wind speed: <span id="wind"></span>
