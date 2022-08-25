@@ -32,11 +32,12 @@ function displayTemperature(response) {
 
   let iconElement = document.querySelector("#icon");
 
-  celsiusLink.classList.add("active");
-  fahrenehitLink.classList.remove("active");
+  celsiusLink.classList.remove("active");
+  fahrenehitLink.classList.add("active");
 
-  tempC = response.data.main.temp;
-  temperatureElement.innerHTML = Math.round(tempC);
+  console.log(response.data.main.temp);
+  tempF = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(tempF);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -51,7 +52,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "eee5ee31d243367da9788e9b7ef6d18f";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -66,7 +67,6 @@ function displayTempF(event) {
   event.preventDefault();
 
   let temperatureElement = document.querySelector("#current-temp");
-  let tempF = (tempC * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(tempF);
 
   celsiusLink.classList.remove("active");
@@ -77,13 +77,14 @@ function displayTempC(event) {
   event.preventDefault();
 
   let temperatureElement = document.querySelector("#current-temp");
+  let tempC = ((tempF - 32) * 5) / 9;
   temperatureElement.innerHTML = Math.round(tempC);
 
   celsiusLink.classList.add("active");
   fahrenehitLink.classList.remove("active");
 }
 
-let tempC = null;
+let tempF = null;
 
 let form = document.querySelector("#city-search-form");
 form.addEventListener("submit", handleSubmit);
