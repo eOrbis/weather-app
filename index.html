@@ -15,7 +15,18 @@
     <div class="container">
       <div class="weather-app">
       
-        <h1><span id="city">City</span></h1>
+        <div class="row">
+          <div class="col-6">
+            <h1><span id="city">City</span></h1>
+          </div>
+          <div class="col-6">
+            <div class="current-weather-info" id="current-weather-info">
+              <img src="" id="icon" class="float-left" />
+              <span class="current-temp" id="current-temp">82</span>
+              <span class="degree-unit"><a href ="" class="active" id="celsius-link">°C</a> |<a href="" id="fahrenheit-link">°F</a> </span>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm">
             <div><span id="current-date"></span><span id="current-time"></span>
@@ -47,13 +58,9 @@
           </div>  
           </form>
         </div>
-        <div class="current-weather-info">
-          <img src="" id="icon" class="float-left" />
-          <span class="current-temp" id="current-temp">82</span>
-          <span class="degree-unit"><a href ="" class="active" id="celsius-link">°C</a> |<a href="" id="fahrenheit-link">°F</a> </span>
-          <div class="forecast-container">Forecast goes here
-          </div>
+        <div class="forecast-container">Forecast goes here
         </div>
+        
       </div>
       <div id="footer">This project was coded by Angie Wood, and is available open-sourced on GitHub and hosted on Netlify
       </div>

@@ -1,10 +1,14 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = date.getHours();
+  if (hours > 12) {
+    hours = hours - 12;
+  }
   let minutes = date.getMinutes();
   if (minutes < 0) {
     minutes = `0${minutes}`;
   }
+
   let days = [
     "Sunday",
     "Monday",
@@ -27,6 +31,9 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#current-date");
 
   let iconElement = document.querySelector("#icon");
+
+  celsiusLink.classList.add("active");
+  fahrenehitLink.classList.remove("active");
 
   tempC = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(tempC);
