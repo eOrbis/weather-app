@@ -30,3 +30,12 @@ img {
 #current-description {
   text-transform: capitalize;
 }
+
+.current-weather-info .active {
+  color: black;
+
+}
+
+.current-weather-info .active:hover {
+  cursor: default;
+  text-decoration: none;
