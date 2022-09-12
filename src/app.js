@@ -35,7 +35,6 @@ function displayTemperature(response) {
   celsiusLink.classList.remove("active");
   fahrenehitLink.classList.add("active");
 
-  console.log(response.data.main.temp);
   tempF = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(tempF);
   cityElement.innerHTML = response.data.name;
@@ -96,3 +95,14 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayTempC);
 
 search("Seattle");
+
+/* Not working yet
+function makeMoreExciting(event) {
+  event.preventDefault;
+  let background = document.querySelector("#background");
+  background.setAttribute(background - image, "bkgd-design.png");
+}
+
+let changeBackground = document.querySelector("#change-background");
+changeBackground.addEventListener("click", makeMoreExciting);
+*/

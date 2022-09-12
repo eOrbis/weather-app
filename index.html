@@ -13,6 +13,7 @@
   
   <body>
     <div class="container">
+      <div class="background-image">
       <div class="weather-app">
       
         <div class="row">
@@ -58,13 +59,29 @@
           </div>  
           </form>
         </div>
-        <div class="forecast-container">Forecast goes here
+        <div class="forecast-container">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-day">Thu
+              </div>
+              <img src="http://openweathermap.org/img/wn/04d@2x.png" 
+              alt=""
+              width=50>
+              <div class="forecast-degrees">
+                <span class="forecast-temp-high">72°</span>
+                <span class="forecast-temp-low"> 64°</span> 
+              </div>
+            </div>
+          </div>
         </div>
         
       </div>
-      <div id="footer">This project was coded by Angie Wood, and is available open-sourced on <a href="https://github.com/eOrbis/weather-app">GitHub</a> and hosted on <a href="https://effervescent-panda-91d421.netlify.app/" target=_blank>Netlify</a>.
+      </div> 
+      <div id="footer">This project was coded by Angie Wood, and is available open-sourced on <a href="https://github.com/eOrbis/weather-app">GitHub</a> and hosted on <a href="https://effervescent-panda-91d421.netlify.app/" target=_blank>Netlify</a>. <br />
+ <!--     If you feel this app is too boring, please click <a href="" id="change-background">here</a>. -->  
       </div>
-      
+    
+     
     </div>
     <script src="src/app.js"></script>
   </body>
