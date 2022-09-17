@@ -2,27 +2,6 @@ body {
   font-family: Roboto, arial, sans-serif;
 }
 
-.container {
-  max-width: 600px;
-  border: solid;
-  /* background-color: pink; */
-  height: 500px;
-}
-.background-image {
-  max-width: 5500px;
-  border: solid;
-  height: 300px;
-  /*background-image: url("https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?cs=srgb&dl=pexels-alexander-grey-1191710.jpg&fm=jpg");
-  background-size: contain;
-  */
-}
-
-.weather-app {
-  margin: 50px auto;
-  max-width: 500px;
-  /*background-color: yellow; */
-}
-
 h1 {
   margin: 20px;
   font-size: 48px;
@@ -46,6 +25,39 @@ h1 {
   width: 60px;
 }
 
+.container {
+  max-width: 600px;
+  background-color: rgb(224, 235, 229);
+  height: 430px;
+  border-radius: 6px;
+  margin: 40px;
+}
+
+.weather-app {
+  margin: 50px auto;
+  max-width: 500px;
+  /*background-color: yellow; */
+}
+
+.forecast-day {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.forecast-degrees {
+  font-size: 14px;
+}
+
+/* .background-image {
+  max-width: 5500px;
+
+  height: 300px;
+  /*background-image: url("https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?cs=srgb&dl=pexels-alexander-grey-1191710.jpg&fm=jpg");
+  background-size: contain;
+ 
+}
+ */
+
 .degree-unit {
   font-size: 16px;
 }
@@ -54,12 +66,7 @@ h1 {
   border: solid;
   max-width: 600px;
   text-align: center;
-}
-
-.container {
-  border: solid;
-  border-radius: 6px;
-  margin: 40px;
+  margin: 0 0 20px 0;
 }
 
 #current-description {
@@ -79,22 +86,10 @@ h1 {
   margin: 20px 0 20px 0;
 }
 
-.forecast-container {
-  margin: 0 0 20px 0;
-}
 #footer {
   max-width: 80%;
   margin: 40px;
   font-size: small;
-}
-
-.forecast-day {
-  font-size: 16px;
-  opacity: 0.6;
-}
-
-.forecast-degrees {
-  font-size: 14px;
 }
 
 .forecast-temp-high {

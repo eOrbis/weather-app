@@ -22,6 +22,60 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` 
+          <div class="col-2">
+            <div class="forecast-day">${formatDay(forecastDay.dt)}
+            </div>
+            
+            <img 
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" 
+              alt=""
+              width=50 
+            />
+            <div class="forecast-degrees">
+              <span class="forecast-temp-high">${Math.round(
+                forecastDay.temp.max
+              )}°</span>
+              <span class="forecast-temp-low"> ${Math.round(
+                forecastDay.temp.min
+              )}°</span> 
+            </div>
+          </div>
+        `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "a5acb752426cd8188485c35694980e3a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#current-temp");
   let cityElement = document.querySelector("#city");
@@ -29,11 +83,10 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#current-date");
-
   let iconElement = document.querySelector("#icon");
 
   celsiusLink.classList.remove("active");
-  fahrenehitLink.classList.add("active");
+  fahrLink.classList.add("active");
 
   tempF = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(tempF);
@@ -47,6 +100,8 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", "response.data.weather[0].description");
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -69,7 +124,7 @@ function displayTempF(event) {
   temperatureElement.innerHTML = Math.round(tempF);
 
   celsiusLink.classList.remove("active");
-  fahrenehitLink.classList.add("active");
+  fahrLink.classList.add("active");
 }
 
 function displayTempC(event) {
@@ -80,7 +135,7 @@ function displayTempC(event) {
   temperatureElement.innerHTML = Math.round(tempC);
 
   celsiusLink.classList.add("active");
-  fahrenehitLink.classList.remove("active");
+  fahrLink.classList.remove("active");
 }
 
 let tempF = null;
@@ -88,21 +143,10 @@ let tempF = null;
 let form = document.querySelector("#city-search-form");
 form.addEventListener("submit", handleSubmit);
 
-let fahrenehitLink = document.querySelector("#fahrenheit-link");
-fahrenehitLink.addEventListener("click", displayTempF);
+let fahrLink = document.querySelector("#fahr-link");
+fahrLink.addEventListener("click", displayTempF);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayTempC);
 
 search("Seattle");
-
-/* Not working yet
-function makeMoreExciting(event) {
-  event.preventDefault;
-  let background = document.querySelector("#background");
-  background.setAttribute(background - image, "bkgd-design.png");
-}
-
-let changeBackground = document.querySelector("#change-background");
-changeBackground.addEventListener("click", makeMoreExciting);
-*/
