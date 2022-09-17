@@ -5,7 +5,7 @@ function formatDate(timestamp) {
     hours = hours - 12;
   }
   let minutes = date.getMinutes();
-  if (minutes < 0) {
+  if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
@@ -85,15 +85,12 @@ function displayTemperature(response) {
   let dateElement = document.querySelector("#current-date");
   let iconElement = document.querySelector("#icon");
 
-  celsiusLink.classList.remove("active");
-  fahrLink.classList.add("active");
-
   tempF = response.data.main.temp;
   temperatureElement.innerHTML = Math.round(tempF);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
-  windElement.innerHTML = response.data.wind.speed;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   iconElement.setAttribute(
     "src",
@@ -102,6 +99,8 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", "response.data.weather[0].description");
 
   getForecast(response.data.coord);
+
+  console.log(response);
 }
 
 function search(city) {
@@ -142,11 +141,5 @@ let tempF = null;
 
 let form = document.querySelector("#city-search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrLink = document.querySelector("#fahr-link");
-fahrLink.addEventListener("click", displayTempF);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayTempC);
 
 search("Seattle");
