@@ -14,17 +14,6 @@ h1 {
   font-weight: bold;
 }
 
-#current-weather-info {
-  vertical-align: top;
-  margin: 20px;
-}
-
-#icon {
-  vertical-align: top;
-  height: 60px;
-  width: 60px;
-}
-
 .container {
   max-width: 600px;
   background-color: rgb(224, 235, 229);
@@ -47,16 +36,6 @@ h1 {
   font-size: 14px;
 }
 
-/* .background-image {
-  max-width: 5500px;
-
-  height: 300px;
-  /*background-image: url("https://images.pexels.com/photos/1191710/pexels-photo-1191710.jpeg?cs=srgb&dl=pexels-alexander-grey-1191710.jpg&fm=jpg");
-  background-size: contain;
- 
-}
- */
-
 .degree-unit {
   font-size: 16px;
 }
@@ -70,10 +49,6 @@ h1 {
   background-color: rgb(224, 235, 229, 0.5);
 }
 
-#current-description {
-  text-transform: capitalize;
-}
-
 .current-weather-info .active {
   color: black;
 }
@@ -81,16 +56,6 @@ h1 {
 .current-weather-info .active:hover {
   cursor: default;
   text-decoration: none;
-}
-
-#city-search-form {
-  margin: 20px 0 20px 0;
-}
-
-#footer {
-  max-width: 80%;
-  margin: 40px;
-  font-size: small;
 }
 
 .forecast-temp-high {
@@ -101,5 +66,31 @@ h1 {
 }
 
 #temp-unit {
-  vertical-align: baseline;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+#current-weather-info {
+  vertical-align: top;
+  margin: 20px;
+}
+
+#icon {
+  vertical-align: top;
+  height: 60px;
+  width: 60px;
+}
+
+#current-description {
+  text-transform: capitalize;
+}
+
+#city-search-form {
+  margin: 20px 0 20px 0;
+}
+
+#footer {
+  max-width: 80%;
+  margin: 40px;
+  font-size: small;
 }
